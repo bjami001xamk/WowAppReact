@@ -8,7 +8,7 @@ function App() {
       let response = await fetch('https://wowback.herokuapp.com/login');
       console.log(response);
       if(response.status === 400) {
-        let data = await response.json();
+        //let data = await response.json();
         console.log('hmm')
       } else{
         
