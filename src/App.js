@@ -6,7 +6,12 @@ function App() {
   useEffect(() => {
     async function fetchUser() {
       let response = await fetch('https://wowback.herokuapp.com/login', {
-        credentials: 'include'
+        credentials: 'include',
+        headers: new Headers({
+          'Accept': 'application/json',
+          'Access-Control-Allow-Origin':'https://pedantic-nightingale-fe0a38.netlify.app/',
+          'Content-Type': 'application/json',
+        })
       });
       console.log(response);
       if(response.status === 400) {
