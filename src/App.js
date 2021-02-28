@@ -12,7 +12,11 @@ function App() {
       console.log(response);
       if(response.status === 400) {
         //let data = await response.json();
-        console.log('hmm')
+        console.log('hmm');
+
+        let testresp = await fetch('https://wowback.herokuapp.com/characterdata');
+        let testdata = testresp.json();
+        console.log(testdata);
       } else{
         
         let data = await response.json();
