@@ -5,7 +5,7 @@ function App() {
 
   useEffect(() => {
     async function fetchUser() {
-      let response = await fetch('https://localhost:8000/login');
+      let response = await fetch('https://wowback.herokuapp.com/login');
       console.log(response);
       if(response.status === 400) {
         let data = await response.json();
