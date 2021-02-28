@@ -31,10 +31,18 @@ function App() {
 
   }, [])
 
-  
+  const logout = async() => {
+      let response = await fetch('https://wowback.herokuapp.com/logout', { credentials: 'include' });
+      console.log(response);
+    
+  }
+
+
   return (
     <div className="App">
       Testi
+
+      <button onClick={() => logout()}>Logoutnappi</button>
     </div>
   );
 }
