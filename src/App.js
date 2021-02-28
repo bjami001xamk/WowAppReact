@@ -17,7 +17,7 @@ function App() {
         let testresp = await fetch('https://wowback.herokuapp.com/characterdata', {
           credentials: 'include'
         });
-        let testdata = testresp.json();
+        let testdata = await testresp.json();
         console.log(testdata);
       } else{
         
