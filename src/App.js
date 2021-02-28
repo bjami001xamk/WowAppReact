@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import {useEffect} from 'react';
+
 
 function App() {
+
+  useEffect(() => {
+    async function fetchUser() {
+      let response = await fetch('https://localhost:8000/login');
+      console.log(response);
+      if(response.status === 400) {
+        let data = await response.json();
+    
+      } else{
+        
+        let data = await response.json();
+        //window.location.assign(data);
+        console.log(data);
+      }
+      
+    }
+    fetchUser();
+
+  }, [])
+
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      Testi
     </div>
   );
 }
