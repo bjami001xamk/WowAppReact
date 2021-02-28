@@ -1,7 +1,9 @@
-import {useEffect} from 'react';
-
+import {useEffect, useState} from 'react';
+import Selectionscreen from './components/selectionscreen';
 
 function App() {
+  const [ user, setUser ] = useState(false);
+
 
   useEffect(() => {
     async function fetchUser() {
@@ -13,11 +15,12 @@ function App() {
       if(response.status === 400) {
         //let data = await response.json();
         console.log('hmm');
-
+        
         let testresp = await fetch('https://wowback.herokuapp.com/characterdata', {
           credentials: 'include'
         });
         let testdata = await testresp.json();
+        setUser("löytyy");
         console.log(testdata);
       } else{
         
@@ -37,12 +40,24 @@ function App() {
     
   }
 
+  if(user) {
+
+
+    return(
+      <>
+        <Selectionscreen/>
+        <button onClick={() => logout()}>Logoutnappi</button>
+      </>
+    )
+
+  }
+
 
   return (
     <div className="App">
       Testi
 
-      <button onClick={() => logout()}>Logoutnappi</button>
+      
     </div>
   );
 }
