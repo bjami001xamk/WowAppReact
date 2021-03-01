@@ -42,7 +42,7 @@ function App() {
 
 
     return(
-      <Container maxWidth="sm">
+      <Container>
         <Selectionscreen/>
         <button onClick={() => logout()}>Logoutnappi</button>
       </Container>
