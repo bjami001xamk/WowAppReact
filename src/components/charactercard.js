@@ -29,8 +29,8 @@ function Charactercard({character}) {
             >
                 <img src={avatarUrl} alt=""/>
                 <div className={classes.textBox}>
-                    <Typography variant="h6">{character.name} {character.level}</Typography>
-                    <Typography variant="h6">{character.playable_race.name.en_GB} {character.playable_class.name.en_GB}</Typography>
+                    <Typography variant="button">{character.name} {character.level}</Typography>
+                    <Typography variant="button">{character.playable_race.name.en_GB} {character.playable_class.name.en_GB}</Typography>
                 </div>
             </Grid>
             
