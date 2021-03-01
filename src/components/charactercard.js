@@ -17,15 +17,10 @@ function Charactercard({character}) {
                 alignItems="flex-start"
             >
                 <img src={avatarUrl} alt=""/>
-                <Grid
-                    container
-                    direction="column"
-                    justify="flex-start"
-                    alignItems="flex-start"
-                >
+                <div>
                     <p>{character.name}</p>
                     <p>{character.level}</p>
-                </Grid>
+                </div>
             </Grid>
             
             
