@@ -19,7 +19,7 @@ function Selectionscreen() {
         return(
             <>
                 {characters.map((character) => {
-                    <CharacterCard character={character}/>
+                    return <CharacterCard character={character}/>
                 })}
             </>
         )
