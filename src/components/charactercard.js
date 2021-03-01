@@ -29,8 +29,8 @@ function Charactercard({character}) {
             >
                 <img src={avatarUrl} alt=""/>
                 <div className={classes.textBox}>
-                    <p>{character.name}</p>
-                    <p>{character.level}</p>
+                    <h6>{character.name} {character.level}</h6>
+                    <h6>{character.playable_race.name.en_GB} {character.playable_class.name.enGB}</h6>
                 </div>
             </Grid>
             
