@@ -8,9 +8,9 @@ const useStyles = makeStyles(() => ({
     },
     textBox: {
         marginLeft:10,
-        display: flex,
-        flexDirection: column,
-        alignSelf: center,
+        display: 'flex',
+        flexDirection: 'column',
+        alignSelf: 'center',
     },
   }));
   
