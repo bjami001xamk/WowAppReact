@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-function selectionscreen() {
+function Selectionscreen() {
 
     const [ data, setData ] = useState(null);
 
@@ -30,4 +30,4 @@ function selectionscreen() {
     )
 }
 
-export default selectionscreen
+export default Selectionscreen
