@@ -7,7 +7,7 @@ function Charactercard({character}) {
     return (
         
         <Card>
-            <img src={avatarUrl} />
+            <img src={avatarUrl} alt="No Picture"/>
             <p>{character.name}</p>
             <p>{character.level}</p>
         </Card>
