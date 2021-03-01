@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import CharacterCard from './charactercard';
-import { Grid,Typography } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 
 function Selectionscreen() {
 
