@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card } from '@material-ui/core'
+import { Card, Grid } from '@material-ui/core'
 //https://render-eu.worldofwarcraft.com/character/bloodfeather/59/131045435-avatar.jpg
 function Charactercard({character}) {
     let avatarUrl = character.mediainfo ? character.mediainfo.avatar_url 
@@ -10,9 +10,25 @@ function Charactercard({character}) {
     return (
         
         <Card>
-            <img src={avatarUrl} alt=""/>
-            <p>{character.name}</p>
-            <p>{character.level}</p>
+            <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="flex-start"
+            >
+                <img src={avatarUrl} alt=""/>
+                <Grid
+                    container
+                    direction="column"
+                    justify="flex-start"
+                    alignItems="flex-start"
+                >
+                    <p>{character.name}</p>
+                    <p>{character.level}</p>
+                </Grid>
+            </Grid>
+            
+            
         </Card>
     )
 }
