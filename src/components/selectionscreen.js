@@ -13,9 +13,9 @@ function Selectionscreen() {
         }
         fetchCharacterData();
     }, [])
-    console.log(data);
+    console.log(characters);
 
-    if(data){
+    if(characters){
         return(
             <>
                 {characters.map((character) => {
