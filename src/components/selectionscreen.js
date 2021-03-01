@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
+import CharacterCard from './charactercard';
 
 function Selectionscreen() {
 
-    const [ data, setData ] = useState(null);
+    const [ characters, setCharacters ] = useState(null);
 
     useEffect(() => {
         async function fetchCharacterData() {
             let testresp = await fetch('https://wowback.herokuapp.com/characterdata', {credentials: 'include' });
             let testdata = await testresp.json();
-            setData(testdata.wow_accounts[0].characters);
+            setCharacters(testdata.wow_accounts[0].characters);
         }
         fetchCharacterData();
     }, [])
@@ -16,16 +17,18 @@ function Selectionscreen() {
 
     if(data){
         return(
-            <div>
-
-            </div>
+            <>
+                {characters.map((character) => {
+                    <CharacterCard character={character}/>
+                })}
+            </>
         )
     }
 
 
     return (
         <div>
-            Hahmot tähän
+            Loading character data...
         </div>
     )
 }
