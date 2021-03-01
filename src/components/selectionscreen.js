@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import CharacterCard from './charactercard';
+import { Grid } from '@material-ui/core'
 
 function Selectionscreen() {
 
@@ -17,11 +18,13 @@ function Selectionscreen() {
 
     if(characters){
         return(
-            <>
+            <Grid container spacing={3}>
                 {characters.map((character) => {
-                    return <CharacterCard character={character}/>
+                    return  <Grid item xs={2}>
+                                <CharacterCard character={character}/>
+                            </Grid>
                 })}
-            </>
+            </Grid>
         )
     }
 

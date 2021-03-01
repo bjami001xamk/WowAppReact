@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import Selectionscreen from './components/selectionscreen';
+import {Container} from '@material-ui/core'
 
 function App() {
   const [ user, setUser ] = useState(false);
@@ -41,21 +42,19 @@ function App() {
 
 
     return(
-      <>
+      <Container maxWidth="sm">
         <Selectionscreen/>
         <button onClick={() => logout()}>Logoutnappi</button>
-      </>
+      </Container>
     )
 
   }
 
 
   return (
-    <div className="App">
-      Testi
-
-      
-    </div>
+    <Container maxWidth="sm">
+      <p>Not logged in</p>
+    </Container>
   );
 }
 
