@@ -1,6 +1,12 @@
 import {useEffect, useState} from 'react';
 import Selectionscreen from './components/selectionscreen';
 import {Container} from '@material-ui/core'
+//import './app.css'
+
+interface User{
+  token:string; 
+}
+
 
 function App() {
   const [ user, setUser ] = useState(false);
@@ -18,7 +24,7 @@ function App() {
         console.log('hmm');
         
         
-        setUser("löytyy");
+        setUser(true);
         
       } else{
         
@@ -34,6 +40,11 @@ function App() {
 
   const logout = async() => {
       let response = await fetch('https://wowback.herokuapp.com/logout', { credentials: 'include' });
+      
+      if(response.status === 200) {
+        setUser(false);
+      }
+
       console.log(response);
     
   }
