@@ -65,7 +65,7 @@ function App() {
       <button 
         style={{ backgroundImage: `url(${bnetimage})`, width:300, height:150, backgroundSize:'cover' }}
         onClick={() => window.location.href = bnetLoginUrl}
-        >testia</button>
+        ></button>
       
     </Container>
   );
