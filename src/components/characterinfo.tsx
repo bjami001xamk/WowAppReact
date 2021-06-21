@@ -37,7 +37,7 @@ const Characterinfo: FC<Props> = ({selectedCharacter, setSelectedCharacter}) => 
             setCharacterData(data);  
         }
         fetchCharacterData();
-    }, [])
+    }, [selectedCharacter.name, selectedCharacter.realm.slug])
 
 
     console.log(selectedCharacter)
