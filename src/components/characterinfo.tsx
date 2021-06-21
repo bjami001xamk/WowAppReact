@@ -1,7 +1,7 @@
-import { Dispatch, SetStateAction, FC } from "react";
+import { Dispatch, SetStateAction, FC, useEffect, useState } from "react";
 import {Button} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { Character } from '../types/index';
+import { Character, CharaterStatistics } from '../types/index';
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -27,15 +27,39 @@ interface Props{
 
 
 const Characterinfo: FC<Props> = ({selectedCharacter, setSelectedCharacter}) => {
+    const [characterData, setCharacterData] = useState<CharaterStatistics | null>(null)
+
+    useEffect(() => {
+        async function fetchCharacterData() {
+            let response = await fetch('https://wowback.herokuapp.com/characterdata', {credentials: 'include' });
+            let data : CharaterStatistics = await response.json(); 
+            setCharacterData(data);  
+        }
+        fetchCharacterData();
+    }, [])
+
+
     console.log(selectedCharacter)
     const classes = useStyles();
     //const style = { backgroundImage: `url(${selectedCharacter.mediainfo.assets[2].value})`};
     //console.log(style);
 
+    if(!characterData) {
+        return (
+            <>
+                <div className={classes.maindiv}>
+                    Loading...
+                </div>
+                
+            </>
+            
+        )
+    }
+
     return (
         <>
             <div className={classes.maindiv} /*style={style}*/ >
-                HahmoDataa
+                {characterData._links.health}
             </div>
             <Button variant="contained" color="primary" onClick={() => setSelectedCharacter(null)}>Return</Button>
         </>
