@@ -57,6 +57,7 @@ const Characterinfo: FC<Props> = ({selectedCharacter, setSelectedCharacter}) => 
         )
     }
 
+    console.log(characterData);
     return (
         <>
             <div className={classes.maindiv} /*style={style}*/ >

@@ -22,7 +22,7 @@ export interface CharaterStatistics{
         href: string;
       };
     }
-    health: string;
+    health: number;
     power: number,
     power_type: {
       key: {
