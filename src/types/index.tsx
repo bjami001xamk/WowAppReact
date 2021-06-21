@@ -20,7 +20,8 @@ export interface CharaterStatistics{
     _links: {
       self: {
         href: string;
-    };
+      };
+    }
     health: string;
     power: number,
     power_type: {
@@ -146,5 +147,4 @@ export interface CharaterStatistics{
         slug: string
       }
     }
-  }
 }

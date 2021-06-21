@@ -59,7 +59,7 @@ const Characterinfo: FC<Props> = ({selectedCharacter, setSelectedCharacter}) => 
     return (
         <>
             <div className={classes.maindiv} /*style={style}*/ >
-                {characterData._links.health}
+                {characterData.health}
             </div>
             <Button variant="contained" color="primary" onClick={() => setSelectedCharacter(null)}>Return</Button>
         </>
