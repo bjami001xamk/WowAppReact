@@ -3,10 +3,6 @@ import Selectionscreen from './components/selectionscreen';
 import {Container} from '@material-ui/core'
 //import './app.css'
 
-interface User{
-  token:string; 
-}
-
 
 function App() {
   const [ user, setUser ] = useState(false);

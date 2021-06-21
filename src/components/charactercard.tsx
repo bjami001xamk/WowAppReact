@@ -28,8 +28,8 @@ interface Props{
 
 const Charactercard: FC<Props> = ({character, setSelectedCharacter}) => {
     const classes = useStyles();
-    const genderID = character.type === "MALE" ? 1 : 0
-    const raceId = character.playable_race.id;
+    //const genderID = character.type === "MALE" ? 1 : 0
+    //const raceId = character.playable_race.id;
     let avatarUrl = character.mediainfo.avatar_url;
     /*let avatarUrl = character.mediainfo ? character.mediainfo.avatar_url 
                                             ? character.mediainfo.avatar_url
