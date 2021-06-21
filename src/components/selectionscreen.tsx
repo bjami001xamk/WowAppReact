@@ -17,7 +17,6 @@ const Selectionscreen: FC<Props> = () => {
             let testresp = await fetch('https://wowback.herokuapp.com/characterdata', {credentials: 'include' });
             let testdata = await testresp.json();
             setCharacters(testdata);
-            console.log('apikutsupew')
         }
         fetchCharacterData();
     }, [])

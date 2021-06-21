@@ -32,7 +32,7 @@ const Characterinfo: FC<Props> = ({selectedCharacter, setSelectedCharacter}) => 
 
     useEffect(() => {
         async function fetchCharacterData() {
-            let response = await fetch('https://wowback.herokuapp.com/characterdata', {credentials: 'include' });
+            let response = await fetch('https://wowback.herokuapp.com/characterstatistics', {credentials: 'include' });
             let data : CharaterStatistics = await response.json(); 
             setCharacterData(data);  
         }
