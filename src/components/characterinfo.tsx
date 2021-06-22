@@ -60,7 +60,7 @@ const Characterinfo: FC<Props> = ({selectedCharacter, setSelectedCharacter}) => 
     return (
         <>
             <div className={classes.maindiv} style={style} >
-                <Typography variant="h3">{selectedCharacter.name} {selectedCharacter.playable_race.name} {selectedCharacter.playable_class.name}</Typography>
+                <Typography variant="h3">{selectedCharacter.name} {selectedCharacter.playable_race.name.en_GB} {selectedCharacter.playable_class.name.en_GB}</Typography>
                 <Typography variant="body1">{characterData.health}</Typography>
             </div>
             <Button variant="contained" color="primary" onClick={() => setSelectedCharacter(null)}>Return</Button>
