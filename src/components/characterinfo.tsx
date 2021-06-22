@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, FC, useEffect, useState } from "react";
 import {Button} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography } from '@material-ui/core'
+import { Typography, Box } from '@material-ui/core'
 import { Character, CharaterStatistics } from '../types/index';
 
 const useStyles = makeStyles(() => ({
@@ -59,9 +59,18 @@ const Characterinfo: FC<Props> = ({selectedCharacter, setSelectedCharacter}) => 
     console.log(characterData);
     return (
         <>
-            <div className={classes.maindiv} style={style} >
-                <Typography align="center" variant="h3">{selectedCharacter.name} {selectedCharacter.playable_race.name.en_GB} {selectedCharacter.playable_class.name.en_GB}</Typography>
-                <Typography variant="body1">{characterData.health}</Typography>
+            <div className={classes.maindiv} style={style}>
+                <Typography align="center" variant="h4">{selectedCharacter.name} {selectedCharacter.playable_race.name.en_GB} {selectedCharacter.playable_class.name.en_GB}</Typography>
+                
+                <Box display="flex" justifyContent="space-between">
+                    <Box display="flex" justifyContent="space-between">
+                        <Typography variant="body1">Health: </Typography>
+                        <Typography variant="body1">{characterData.health}</Typography>
+                    </Box>
+                </Box>
+                
+
+
             </div>
             <Button variant="contained" color="primary" onClick={() => setSelectedCharacter(null)}>Return</Button>
         </>
