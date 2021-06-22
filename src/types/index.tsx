@@ -1,6 +1,6 @@
 export interface Character {
     id:string;
-    mediainfo:{ avatar_url: string} | null;
+    mediainfo:{ avatar_url: string, render_url: string } | null;
     name:string;
     level:string;
     playable_race:{ id: string

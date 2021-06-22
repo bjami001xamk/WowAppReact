@@ -42,8 +42,7 @@ const Characterinfo: FC<Props> = ({selectedCharacter, setSelectedCharacter}) => 
 
     console.log(selectedCharacter)
     const classes = useStyles();
-    //const style = { backgroundImage: `url(${selectedCharacter.mediainfo.assets[2].value})`};
-    //console.log(style);
+    const style = { backgroundImage: `url(${selectedCharacter.mediainfo?.render_url})`};
 
     if(!characterData) {
         return (
@@ -60,7 +59,7 @@ const Characterinfo: FC<Props> = ({selectedCharacter, setSelectedCharacter}) => 
     console.log(characterData);
     return (
         <>
-            <div className={classes.maindiv} /*style={style}*/ >
+            <div className={classes.maindiv} style={style} >
                 <Typography variant="body1">{characterData.health}</Typography>
             </div>
             <Button variant="contained" color="primary" onClick={() => setSelectedCharacter(null)}>Return</Button>
