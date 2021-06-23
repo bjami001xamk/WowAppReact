@@ -30,7 +30,7 @@ const useStyles = makeStyles(() => ({
         minWidth:140
     }
     ,
-  }));
+}));
 
 interface Props{
     selectedCharacter: Character,
