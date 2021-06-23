@@ -13,7 +13,7 @@ function App() {
   const [ bnetLoginUrl, setBnetLoginUrl ] = useState<string>("");
 
   useEffect(() => {
-    /*async function fetchUser() {
+    async function fetchUser() {
       let response = await fetch('https://wowback.herokuapp.com/login', {
         credentials: 'include'
       });
@@ -35,9 +35,6 @@ function App() {
       
     }
     fetchUser();
-    */
-    setBnetLoginUrl("")
-    setUser(true);
   }, [])
 
   const logout = async() => {
