@@ -22,7 +22,7 @@ const Selectionscreen: FC<Props> = () => {
         fetchCharacterData();
            
     }, [])
-    console.log(characters);
+    
 
     if(selectedCharacter) {
         return (
