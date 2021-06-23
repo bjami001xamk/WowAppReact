@@ -11,14 +11,28 @@ const useStyles = makeStyles(() => ({
     maindiv: {
         backgroundColor: 'white',
         height: 800,
+        maxWidth:900,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         position: 'relative',
-        borderWidth:'10px',
-        borderColor:"black",
-        borderRadius: 30
+        border:"2px solid #064d94",
+        borderRadius: 7,
+        marginTop:10
     },
+    row: {
+        display:'flex',
+        justifyContent:"space-between",
+        marginLeft:30,
+        marginRight:30,
+        marginBottom:10
+    },
+    rowItem: {
+        display:'flex',
+        justifyContent:"space-between",
+        minWidth:140
+    }
+    ,
   }));
 
 interface Props{
@@ -37,9 +51,10 @@ const Characterinfo: FC<Props> = ({selectedCharacter, setSelectedCharacter}) => 
             setCharacterData(data);  
         }
         fetchCharacterData();
+        
     }, [selectedCharacter.name, selectedCharacter.realm.slug])
-
-
+    
+    
     console.log(selectedCharacter)
     const classes = useStyles();
     const style = { backgroundImage: `url(${selectedCharacter.mediainfo?.render_url})`};
@@ -60,19 +75,121 @@ const Characterinfo: FC<Props> = ({selectedCharacter, setSelectedCharacter}) => 
     return (
         <>
             <div className={classes.maindiv} style={style}>
-                <Typography align="center" variant="h4">{selectedCharacter.name} {selectedCharacter.playable_race.name.en_GB} {selectedCharacter.playable_class.name.en_GB}</Typography>
-                
-                <Box display="flex" justifyContent="space-between">
-                    <Box display="flex" justifyContent="space-between">
-                        <Typography variant="body1">Health: </Typography>
-                        <Typography variant="body1">{characterData.health}</Typography>
+                <Typography style={{paddingTop:10}}align="center" variant="h4">{selectedCharacter.name} </Typography>
+                <Typography align="center" variant="h4">{selectedCharacter.playable_race.name.en_GB} {selectedCharacter.playable_class.name.en_GB}</Typography>
+                <Typography align="center" variant="h4">{characterData.character.realm.name}</Typography>
+
+                <Box className={classes.row}>
+                    <Box className={classes.rowItem}>
+                        <Typography variant="body1">Level: </Typography>
+                        <Typography variant="body1">{selectedCharacter.level}</Typography>
+                    </Box>
+                    <Box className={classes.rowItem}>
+                        <Typography variant="body1">Strength:</Typography>
+                        <Typography variant="body1">{characterData.strength.effective}</Typography>
                     </Box>
                 </Box>
                 
+                <Box className={classes.row}>
+                    <Box className={classes.rowItem}>
+                        <Typography variant="body1">Health:</Typography>
+                        <Typography variant="body1">{characterData.health}</Typography>
+                    </Box>
+                    
+                    <Box className={classes.rowItem}>
+                        <Typography variant="body1">Intellect:</Typography>
+                        <Typography variant="body1">{characterData.intellect.effective}</Typography>
+                    </Box>
+                </Box>
+                <Box className={classes.row}>
+                    <Box className={classes.rowItem}>
+                        <Typography variant="body1">Power:</Typography>
+                        <Typography variant="body1">{characterData.power}</Typography>
+                    </Box>
+                    <Box className={classes.rowItem}>
+                        <Typography variant="body1">Agility: </Typography>
+                        <Typography variant="body1">{characterData.agility.effective}</Typography>
+                    </Box>
+                </Box>
 
 
+
+                <Box className={classes.row} mt={8}>
+                    <Box className={classes.rowItem}>
+                        <Typography variant="body1">Versatility:</Typography>
+                        <Typography variant="body1">{characterData.versatility}</Typography>
+                    </Box>
+                    <Box className={classes.rowItem}>
+                        <Typography variant="body1">Armor: </Typography>
+                        <Typography variant="body1">{characterData.armor.effective}</Typography>
+                    </Box>
+                </Box>
+                <Box className={classes.row}>
+                    <Box className={classes.rowItem}>
+                        <Typography variant="body1">Mastery:</Typography>
+                        <Typography variant="body1">{characterData.mastery.rating}</Typography>
+                    </Box>
+                    <Box className={classes.rowItem}>
+                        <Typography variant="body1">Block: </Typography>
+                        <Typography variant="body1">{characterData.block.rating}</Typography>
+                    </Box>
+                </Box>
+                <Box className={classes.row}>
+                    <Box className={classes.rowItem}>
+                        <Typography variant="body1">Critical:</Typography>
+                        <Typography variant="body1">{characterData.melee_crit.rating}</Typography>
+                    </Box>
+                    <Box className={classes.rowItem}>
+                        <Typography variant="body1">Parry: </Typography>
+                        <Typography variant="body1">{characterData.parry.rating}</Typography>
+                    </Box>
+                </Box>
+                <Box className={classes.row}>
+                    <Box className={classes.rowItem}>
+                        <Typography variant="body1">Haste:</Typography>
+                        <Typography variant="body1">{characterData.melee_haste.rating}</Typography>
+                    </Box>
+                    <Box className={classes.rowItem}>
+                        <Typography variant="body1">Dodge: </Typography>
+                        <Typography variant="body1">{characterData.dodge.rating}</Typography>
+                    </Box>
+                </Box>
+
+                <Box className={classes.row} mt={8}>
+                    <Box className={classes.rowItem}>
+                        <Typography variant="body1">Speed:</Typography>
+                        <Typography variant="body1">{characterData.speed.rating}</Typography>
+                    </Box>
+                    <Box className={classes.rowItem}>
+                        <Typography variant="body1">Mana regen: </Typography>
+                        <Typography variant="body1">{characterData.mana_regen}</Typography>
+                    </Box>
+                </Box>
+                <Box className={classes.row}>
+                    <Box className={classes.rowItem}>
+                        <Typography variant="body1">Lifesteal:</Typography>
+                        <Typography variant="body1">{characterData.lifesteal.rating}</Typography>
+                    </Box>
+                    <Box className={classes.rowItem}>
+                        <Typography variant="body1">Spell pen: </Typography>
+                        <Typography variant="body1">{characterData.spell_penetration}</Typography>
+                    </Box>
+                </Box>
+                <Box className={classes.row}>
+                    <Box className={classes.rowItem}>
+                        <Typography variant="body1">Avoidance:</Typography>
+                        <Typography variant="body1">{characterData.avoidance.rating}</Typography>
+                    </Box>
+                    <Box className={classes.rowItem}>
+                        <Typography variant="body1">Stamina: </Typography>
+                        <Typography variant="body1">{characterData.stamina.effective}</Typography>
+                    </Box>
+                </Box>
+                <Box display='flex' justifyContent='center' mt={20}>
+                    <Button variant="contained" color="primary" onClick={() => setSelectedCharacter(null)}>Back</Button>
+                </Box>
             </div>
-            <Button variant="contained" color="primary" onClick={() => setSelectedCharacter(null)}>Return</Button>
+            
         </>
         
     )

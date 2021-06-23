@@ -14,10 +14,13 @@ const useStyles = makeStyles(() => ({
         alignSelf: 'center',
     },
     card:{
+        width:250,
         transition: "0.3s",
         "&:hover": {
-          boxShadow: "0px 0px 5px 2px black"
-        }
+          boxShadow: "0px 0px 5px 2px #064d94"
+        },
+        border:"2px solid black",
+        backgroundColor:'lightskyblue'
     },
   }));
   

@@ -1,8 +1,9 @@
 import { useEffect, useState, FC } from 'react';
 import CharacterCard from './charactercard';
 import Characterinfo from './characterinfo';
-import { Grid } from '@material-ui/core';
+import { Grid, Box, Typography } from '@material-ui/core';
 import { Character } from '../types/index';
+
 interface Props {
     
 }
@@ -19,6 +20,8 @@ const Selectionscreen: FC<Props> = () => {
             setCharacters(testdata);
         }
         fetchCharacterData();
+        
+        
     }, [])
     console.log(characters);
 
@@ -31,13 +34,16 @@ const Selectionscreen: FC<Props> = () => {
 
     if(characters){
         return(
-            <Grid container spacing={3}>
-                {characters.map((character) => {
-                    return  <Grid item xs={3} key={character.id}>
-                                <CharacterCard key={character.id} character={character} setSelectedCharacter={setSelectedCharacter}/>
-                            </Grid>
-                })}
-            </Grid>
+            <Box pt={5} justifyContent='center'>
+                <Typography align='center' variant='h3'>Your characters:</Typography>
+                <Grid container spacing={3} style={{marginTop:10}}>
+                    {characters.map((character) => {
+                        return  <Grid item xs={12} sm={6} md={4} lg={3} key={character.id} style={{display:'flex', justifyContent:'center'}}>
+                                    <CharacterCard key={character.id} character={character} setSelectedCharacter={setSelectedCharacter}/>
+                                </Grid>
+                    })}
+                </Grid>
+            </Box>
         )
     }
 
