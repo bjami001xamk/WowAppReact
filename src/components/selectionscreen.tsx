@@ -5,7 +5,6 @@ import { Grid, Box, Typography } from '@material-ui/core';
 import { Character } from '../types/index';
 
 interface Props {
-    
 }
 
 
@@ -15,13 +14,13 @@ const Selectionscreen: FC<Props> = () => {
 
     useEffect(() => {
         async function fetchCharacterData() {
-            let testresp = await fetch('https://wowback.herokuapp.com/characterdata', {credentials: 'include' });
-            let testdata = await testresp.json();
-            setCharacters(testdata);
+            let response = await fetch('https://wowback.herokuapp.com/characterdata', {credentials: 'include' });
+            let data = await response.json();
+            setCharacters(data);
         }
+
         fetchCharacterData();
-        
-        
+           
     }, [])
     console.log(characters);
 
@@ -30,7 +29,6 @@ const Selectionscreen: FC<Props> = () => {
             <Characterinfo setSelectedCharacter={setSelectedCharacter} selectedCharacter={selectedCharacter}/>
         )
     }
-
 
     if(characters){
         return(
@@ -46,7 +44,6 @@ const Selectionscreen: FC<Props> = () => {
             </Box>
         )
     }
-
 
     return (
         <div>

@@ -4,9 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Character } from '../types/index'
 
 const useStyles = makeStyles(() => ({
-    root: {
-      display: 'flex',
-    },
     textBox: {
         marginLeft:10,
         display: 'flex',
@@ -22,7 +19,7 @@ const useStyles = makeStyles(() => ({
         border:"2px solid black",
         backgroundColor:'lightskyblue'
     },
-  }));
+}));
   
 interface Props{
     character: Character,
@@ -41,17 +38,10 @@ const Charactercard: FC<Props> = ({character, setSelectedCharacter}) => {
         avatarUrl = `https://render-eu.worldofwarcraft.com/shadow/avatar/${raceId}-${genderID}.jpg`
     }
     
-    /*let avatarUrl = character.mediainfo ? character.mediainfo.avatar_url 
-                                            ? character.mediainfo.avatar_url
-                                            : character.mediainfo.assets[0].value
-                                        : `https://render-eu.worldofwarcraft.com/shadow/avatar/${raceId}-${genderID}.jpg`;*/
-
 
     return (
         <Card className={classes.card}>
             <CardActionArea onClick={() => setSelectedCharacter(character)}>
-
-            
                 <Grid
                     container
                     direction="row"
@@ -65,7 +55,6 @@ const Charactercard: FC<Props> = ({character, setSelectedCharacter}) => {
                     </div>
                 </Grid>
             </CardActionArea>
-            
         </Card>
     )
 }
