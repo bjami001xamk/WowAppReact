@@ -28,8 +28,7 @@ const useStyles = makeStyles(() => ({
         display:'flex',
         justifyContent:"space-between",
         minWidth:140
-    }
-    ,
+    },
 }));
 
 interface Props{
@@ -39,7 +38,8 @@ interface Props{
 
 
 const Characterinfo: FC<Props> = ({selectedCharacter, setSelectedCharacter}) => {
-    const [characterData, setCharacterData] = useState<CharaterStatistics | null>(null)
+    const [characterData, setCharacterData] = useState<CharaterStatistics | null>(null);
+    const classes = useStyles();
 
     useEffect(() => {
 
@@ -50,11 +50,9 @@ const Characterinfo: FC<Props> = ({selectedCharacter, setSelectedCharacter}) => 
         }
 
         fetchCharacterData();
-
     }, [selectedCharacter.name, selectedCharacter.realm.slug])
     
-    const classes = useStyles();
-
+    
     if(!characterData) {
         return (
             <>
