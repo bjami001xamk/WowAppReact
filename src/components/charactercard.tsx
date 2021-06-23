@@ -31,11 +31,14 @@ interface Props{
 
 const Charactercard: FC<Props> = ({character, setSelectedCharacter}) => {
     const classes = useStyles();
-    //const genderID = character.type === "MALE" ? 1 : 0
-    //const raceId = character.playable_race.id;
+    const genderID = character.type === "MALE" ? 1 : 0
+    const raceId = character.playable_race.id;
     let avatarUrl;
+    
     if(character.mediainfo) {
         avatarUrl = character.mediainfo.avatar_url;
+    } else {
+        avatarUrl = `https://render-eu.worldofwarcraft.com/shadow/avatar/${raceId}-${genderID}.jpg`
     }
     
     /*let avatarUrl = character.mediainfo ? character.mediainfo.avatar_url 
