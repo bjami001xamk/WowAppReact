@@ -52,17 +52,19 @@ function App() {
   }
 
   return (
-    <CssBaseline>
-      <Container maxWidth="sm">
-        <Box display='flex' flexDirection='column' justifyContent='center' alignItems='center' pt={10}>
-          <Typography align='center' variant="h3">Login with:</Typography>
-          <button 
-            style={{ backgroundImage: `url(${bnetimage})`, borderRadius:5, width:300, height:150, backgroundSize:'cover', border:'2px solid black', marginTop:20}}
-            onClick={() => window.location.href = bnetLoginUrl}
-          ></button>
-        </Box>
-      </Container>
-    </CssBaseline>
+    <ThemeProvider theme={theme}>
+      <CssBaseline>
+        <Container maxWidth="sm">
+          <Box display='flex' flexDirection='column' justifyContent='center' alignItems='center' pt={10}>
+            <Typography align='center' variant="h3">Login with:</Typography>
+            <button 
+              style={{ backgroundImage: `url(${bnetimage})`, borderRadius:5, width:300, height:150, backgroundSize:'cover', border:'2px solid black', marginTop:20}}
+              onClick={() => window.location.href = bnetLoginUrl}
+            ></button>
+          </Box>
+        </Container>
+      </CssBaseline>
+    </ThemeProvider>
   );
 }
 
