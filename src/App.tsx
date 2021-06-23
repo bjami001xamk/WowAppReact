@@ -2,8 +2,6 @@ import {useEffect, useState} from 'react';
 import Selectionscreen from './components/selectionscreen';
 import {Container, Typography, Box, Button} from '@material-ui/core'
 import bnetimage from './images/battlenet.png'
-import { CssBaseline, ThemeProvider } from '@material-ui/core'
-import theme from './theme/theme';
 import './App.css'
 
 function App() {
@@ -39,32 +37,24 @@ function App() {
   if(user) {
 
     return(
-      <ThemeProvider theme={theme}>
-        <CssBaseline>
-          <Container fixed>
-              <Selectionscreen/>
-              <Button style={{marginTop:30, marginLeft:'20%'}} variant="contained" color="primary" onClick={() => logout()}>Logout</Button>
-          </Container>
-        </CssBaseline>
-      </ThemeProvider>
+      <Container fixed>
+          <Selectionscreen/>
+          <Button style={{marginTop:30, marginLeft:'20%'}} variant="contained" color="primary" onClick={() => logout()}>Logout</Button>
+      </Container>
     )
 
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline>
-        <Container maxWidth="sm">
-          <Box display='flex' flexDirection='column' justifyContent='center' alignItems='center' pt={10}>
-            <Typography align='center' variant="h3">Login with:</Typography>
-            <button 
-              style={{ backgroundImage: `url(${bnetimage})`, borderRadius:5, width:300, height:150, backgroundSize:'cover', border:'2px solid black', marginTop:20}}
-              onClick={() => window.location.href = bnetLoginUrl}
-            ></button>
-          </Box>
-        </Container>
-      </CssBaseline>
-    </ThemeProvider>
+    <Container maxWidth="sm">
+      <Box display='flex' flexDirection='column' justifyContent='center' alignItems='center' pt={10}>
+        <Typography align='center' variant="h3">Login with:</Typography>
+        <button 
+          style={{ backgroundImage: `url(${bnetimage})`, borderRadius:5, width:300, height:150, backgroundSize:'cover', border:'2px solid black', marginTop:20}}
+          onClick={() => window.location.href = bnetLoginUrl}
+        ></button>
+      </Box>
+    </Container>
   );
 }
 
