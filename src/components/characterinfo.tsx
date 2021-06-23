@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, FC, useEffect, useState } from "react";
-import {Button} from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Box } from '@material-ui/core'
 import { Character, CharaterStatistics } from '../types/index';
