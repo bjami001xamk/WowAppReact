@@ -2,11 +2,9 @@ import {useEffect, useState} from 'react';
 import Selectionscreen from './components/selectionscreen';
 import {Container, Typography, Box, Button} from '@material-ui/core'
 import bnetimage from './images/battlenet.png'
-//import background from './images/polygon.svg'
 import { CssBaseline, ThemeProvider } from '@material-ui/core'
 import theme from './theme/theme';
 import './App.css'
-
 
 function App() {
   const [ user, setUser ] = useState(false);
@@ -17,19 +15,12 @@ function App() {
       let response = await fetch('https://wowback.herokuapp.com/login', {
         credentials: 'include'
       });
-      console.log(response);
+      
       if(response.status === 400) {
-        //let data = await response.json();
-        console.log('hmm');
-        
-        
         setUser(true);
-        
+
       } else{
-        
         let data = await response.json();
-        //window.location.assign(data);
-        console.log(data);
         setBnetLoginUrl(data);
       }
       
@@ -42,14 +33,10 @@ function App() {
       
       if(response.status === 200) {
         setUser(false);
-      }
-
-      console.log(response);
-    
+      } 
   }
 
   if(user) {
-
 
     return(
       <ThemeProvider theme={theme}>
@@ -63,7 +50,6 @@ function App() {
     )
 
   }
-
 
   return (
     <CssBaseline>
