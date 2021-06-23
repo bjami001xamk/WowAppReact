@@ -51,7 +51,7 @@ const Characterinfo: FC<Props> = ({selectedCharacter, setSelectedCharacter}) => 
             setCharacterData(data);  
         }
         fetchCharacterData();
-        
+
     }, [selectedCharacter.name, selectedCharacter.realm.slug])
     
     
@@ -77,7 +77,7 @@ const Characterinfo: FC<Props> = ({selectedCharacter, setSelectedCharacter}) => 
             <div className={classes.maindiv} style={style}>
                 <Typography style={{paddingTop:10}}align="center" variant="h4">{selectedCharacter.name} </Typography>
                 <Typography align="center" variant="h4">{selectedCharacter.playable_race.name.en_GB} {selectedCharacter.playable_class.name.en_GB}</Typography>
-                <Typography align="center" variant="h4">{characterData.character.realm.name}</Typography>
+                <Typography align="center" variant="h4">{selectedCharacter.realm.name.en_GB}</Typography>
 
                 <Box className={classes.row}>
                     <Box className={classes.rowItem}>

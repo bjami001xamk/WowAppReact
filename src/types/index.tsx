@@ -13,6 +13,9 @@ export interface Character {
                      }};
     type:string;
     realm: {
+        name:{
+          en_GB:string
+        }
         slug: string,
     }
 
