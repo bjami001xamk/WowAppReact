@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
         alignSelf: 'center',
     },
     card:{
-        width:300,
+        width:260,
         transition: "0.3s",
         "&:hover": {
           boxShadow: "0px 0px 5px 2px #064d94"
