@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     async function fetchUser() {
-      let response = await fetch('https://wowback.herokuapp.com/login', { credentials: 'include' });
+      let response = await fetch('https://wowback.herokuapp.com/checklogin', { credentials: 'include' });
       
       if(response.status === 200) {
         setUser(true);
