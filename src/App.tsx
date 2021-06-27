@@ -16,7 +16,7 @@ function App() {
         setUser(true);
 
       } else{
-        let data = await response.json();
+        //let data = await response.json();
         setBnetLoginUrl('/auth/battlenet');
       }
       
