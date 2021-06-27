@@ -13,10 +13,9 @@ function App() {
       
       if(response.status === 200) {
         setLoggedIn(true);
-
       } 
-      
     }
+
     checkLogin();
   }, [])
 
@@ -29,7 +28,6 @@ function App() {
   }
 
   if(loggedIn) {
-
     return(
       <Container fixed>
           <Selectionscreen/>
