@@ -5,14 +5,12 @@ import bnetimage from './images/battlenet.png'
 import './App.css'
 
 function App() {
-  const [ user, setUser ] = useState(false);
+  const [ user, setUser ] = useState<boolean>(false);
   const [ bnetLoginUrl, setBnetLoginUrl ] = useState<string>("");
 
   useEffect(() => {
     async function fetchUser() {
-      let response = await fetch('https://wowback.herokuapp.com/login', {
-        credentials: 'include'
-      });
+      let response = await fetch('https://wowback.herokuapp.com/login', { credentials: 'include' });
       
       if(response.status === 400) {
         setUser(true);
