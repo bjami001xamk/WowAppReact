@@ -12,7 +12,7 @@ function App() {
     async function fetchUser() {
       let response = await fetch('https://wowback.herokuapp.com/login', { credentials: 'include' });
       
-      if(response.status === 400) {
+      if(response.status === 200) {
         setUser(true);
 
       } else{
