@@ -6,7 +6,7 @@ import './App.css'
 
 function App() {
   const [ user, setUser ] = useState<boolean>(false);
-  const [ bnetLoginUrl, setBnetLoginUrl ] = useState<string>("");
+  const [ bnetLoginUrl, setBnetLoginUrl ] = useState<string>("/auth/battlenet");
 
   useEffect(() => {
     async function fetchUser() {
@@ -17,7 +17,7 @@ function App() {
 
       } else{
         let data = await response.json();
-        setBnetLoginUrl(data);
+        setBnetLoginUrl('/auth/battlenet');
       }
       
     }
