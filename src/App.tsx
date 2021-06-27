@@ -5,34 +5,30 @@ import bnetimage from './images/battlenet.png'
 import './App.css'
 
 function App() {
-  const [ user, setUser ] = useState<boolean>(false);
-  const [ bnetLoginUrl, setBnetLoginUrl ] = useState<string>("https://wowback.herokuapp.com/auth/battlenet");
+  const [ loggedIn, setLoggedIn ] = useState<boolean>(false);
 
   useEffect(() => {
-    async function fetchUser() {
+    async function checkLogin() {
       let response = await fetch('https://wowback.herokuapp.com/checklogin', { credentials: 'include' });
       
       if(response.status === 200) {
-        setUser(true);
+        setLoggedIn(true);
 
-      } else{
-        //let data = await response.json();
-        setBnetLoginUrl('https://wowback.herokuapp.com/auth/battlenet');
-      }
+      } 
       
     }
-    fetchUser();
+    checkLogin();
   }, [])
 
   const logout = async() => {
       let response = await fetch('https://wowback.herokuapp.com/logout', { credentials: 'include' });
       
       if(response.status === 200) {
-        setUser(false);
+        setLoggedIn(false);
       } 
   }
 
-  if(user) {
+  if(loggedIn) {
 
     return(
       <Container fixed>
@@ -49,7 +45,7 @@ function App() {
         <Typography align='center' variant="h3">Login with:</Typography>
         <button 
           style={{ backgroundImage: `url(${bnetimage})`, borderRadius:5, width:300, height:150, backgroundSize:'cover', border:'2px solid black', marginTop:20}}
-          onClick={() => window.location.href = bnetLoginUrl}
+          onClick={() => window.location.href = 'https://wowback.herokuapp.com/auth/battlenet'}
         ></button>
       </Box>
     </Container>
